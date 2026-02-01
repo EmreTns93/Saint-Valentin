@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: #ffe6ec;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      width: 300px;
+      height: 200px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      position: absolute;
+      background-color: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Veux-tu être ma Valentine ? 💘</h1>
+
+  <div class="buttons">
+    <button id="yes" onclick="yesClick()">YES ❤️</button>
+    <button id="no">NO 😅</button>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const container = document.querySelector(".buttons");
+
+    noButton.addEventListener("mouseenter", () => {
+      const maxX = container.clientWidth - noButton.offsetWidth;
+      const maxY = container.clientHeight - noButton.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+
+    function yesClick() {
+      document.body.innerHTML = `
+        <h1>YAAAAY 💖🥰</h1>
+        <p>Best decision ever.</p>
+        <p>See you on Valentine’s Day ❤️</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
